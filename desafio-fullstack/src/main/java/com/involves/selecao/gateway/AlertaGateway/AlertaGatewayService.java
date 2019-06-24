@@ -1,10 +1,10 @@
-package com.involves.selecao.gateway;
+package com.involves.selecao.gateway.AlertaGateway;
 
 import java.util.List;
 
 import com.involves.selecao.alerta.Alerta;
 
-public interface AlertaGateway {
+public interface AlertaGatewayService {
 	
 	void salvar(Alerta alerta);
 

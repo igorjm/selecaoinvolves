@@ -1,4 +1,5 @@
-package com.involves.selecao.service;
+package com.involves.selecao.service.AlertaService;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
-import com.involves.selecao.alerta.Alerta;
-import com.involves.selecao.alerta.Pesquisa;
-import com.involves.selecao.alerta.Resposta;
-import com.involves.selecao.gateway.AlertaGateway;
+import com.involves.selecao.model.Alerta.Alerta;
+import com.involves.selecao.model.Pesquisa.Pesquisa;
+import com.involves.selecao.model.Pesquisa.Resposta;
+import com.involves.selecao.gateway.AlertaGateway.AlertaGateway;
 
 @Service
 public class ProcessadorAlertas {
@@ -37,6 +38,7 @@ public class ProcessadorAlertas {
 
 		Gson gson = new Gson();
 		Pesquisa[] ps =  gson.fromJson(content.toString(), Pesquisa[].class);
+
 		for (int i = 0; i < ps.length; i++){
 			for (int j = 0; j < ps[i].getRespostas().size(); j++){
 				Resposta resposta = ps[i].getRespostas().get(j);

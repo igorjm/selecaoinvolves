@@ -1,4 +1,4 @@
-package com.involves.selecao.gateway;
+package com.involves.selecao.gateway.AlertaGateway;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +7,14 @@ import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.involves.selecao.alerta.Alerta;
+import com.involves.selecao.model.Alerta.Alerta;
 import com.involves.selecao.gateway.mongo.MongoDbFactory;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 @Component
-public class AlertaMongoGateway implements AlertaGateway{
+public class AlertaGatewayServiceImpl implements AlertaGatewayService {
 	
 	@Autowired
 	private MongoDbFactory mongoFactory;

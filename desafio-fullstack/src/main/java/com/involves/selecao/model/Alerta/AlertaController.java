@@ -1,4 +1,4 @@
-package com.involves.selecao;
+package com.involves.selecao.model.Alerta;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.involves.selecao.alerta.Alerta;
-import com.involves.selecao.service.BuscaAlertasService;
-import com.involves.selecao.service.ProcessadorAlertas;
+import com.involves.selecao.model.Alerta.Alerta;
+import com.involves.selecao.service.AlertaService.BuscaAlertasService;
+import com.involves.selecao.service.AlertaService.ProcessadorAlertas;
 
 @RestController
 @RequestMapping("/alertas")

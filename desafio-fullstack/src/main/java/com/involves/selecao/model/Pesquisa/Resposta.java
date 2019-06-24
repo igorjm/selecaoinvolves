@@ -1,4 +1,4 @@
-package com.involves.selecao.alerta;
+package com.involves.selecao.model.Alerta;
 
 public class Resposta {
 	
@@ -11,6 +11,7 @@ public class Resposta {
 	public void setPergunta(String pergunta) {
 		this.pergunta = pergunta;
 	}
+
 	public String getResposta() {
 		return resposta;
 	}
