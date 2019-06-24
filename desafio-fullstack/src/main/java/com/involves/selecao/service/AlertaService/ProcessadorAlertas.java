@@ -13,13 +13,13 @@ import com.google.gson.Gson;
 import com.involves.selecao.model.Alerta.Alerta;
 import com.involves.selecao.model.Pesquisa.Pesquisa;
 import com.involves.selecao.model.Pesquisa.Resposta;
-import com.involves.selecao.gateway.AlertaGateway.AlertaGateway;
+import com.involves.selecao.gateway.AlertaGateway.AlertaGatewayService;
 
 @Service
 public class ProcessadorAlertas {
 
 	@Autowired
-	private AlertaGateway gateway;
+	private AlertaGatewayService gateway;
 	
 	public void processa() throws IOException {
 		URL url = new URL("https://selecao-involves.agilepromoter.com/pesquisas");
@@ -41,10 +41,12 @@ public class ProcessadorAlertas {
 
 		for (int i = 0; i < ps.length; i++){
 			for (int j = 0; j < ps[i].getRespostas().size(); j++){
+				Alerta alerta = new Alerta();
 				Resposta resposta = ps[i].getRespostas().get(j);
+				int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
+
 				if (resposta.getPergunta().equals("Qual a situação do produto?")) {
 					if(resposta.getResposta().equals("Produto ausente na gondola")){
-					    Alerta alerta = new Alerta();
 					    alerta.setPontoDeVenda(ps[i].getPonto_de_venda());
 					    alerta.setDescricao("Ruptura detectada!");
 					    alerta.setProduto(ps[i].getProduto());
@@ -55,8 +57,6 @@ public class ProcessadorAlertas {
 					int precoColetado = Integer.parseInt(resposta.getResposta());
 					int precoEstipulado = Integer.parseInt(ps[i].getPreco_estipulado());
 					if(precoColetado > precoEstipulado){
-					    Alerta alerta = new Alerta();
-					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
 					    alerta.setMargem(margem);
 					    alerta.setDescricao("Preço acima do estipulado!");
 					    alerta.setProduto(ps[i].getProduto());
@@ -64,8 +64,6 @@ public class ProcessadorAlertas {
 					    alerta.setFlTipo(2);
 					    gateway.salvar(alerta);
 					} else if(precoColetado < precoEstipulado){
-						Alerta alerta = new Alerta();
-					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
 					    alerta.setMargem(margem);
 					    alerta.setDescricao("Preço abaixo do estipulado!");
 					    alerta.setProduto(ps[i].getProduto());
@@ -73,6 +71,8 @@ public class ProcessadorAlertas {
 					    alerta.setFlTipo(3);
 					    gateway.salvar(alerta);
 					}
+				} else if(resposta.getPergunta().equals("Qual o share do produto?")) {
+					if(ps[i].getRespostas.getResposta() > ps.)
 				} else {
 					System.out.println("Alerta ainda não implementado!");
 				}
