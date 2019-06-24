@@ -1,4 +1,4 @@
-package com.involves.selecao.model.Alerta;
+package com.involves.selecao.model.pesquisa;
 
 public class Resposta {
 	

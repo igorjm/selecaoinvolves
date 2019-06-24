@@ -1,11 +1,11 @@
-package com.involves.selecao.model.Alerta;
+package com.involves.selecao.model.alerta;
 
 public class Alerta {
 	
 	private String pontoDeVenda;
 	private String descricao;
 	private String produto;
-	private Integer flTipo;
+	private AlertaType tipoAlerta;
 	private Integer margem;
 	private String categoria;
 	
@@ -30,11 +30,12 @@ public class Alerta {
 		this.produto = produto;
 	}
 
-	public Integer getFlTipo() {
-		return flTipo;
+	public AlertaType getTipoAlerta() {
+		return tipoAlerta;
 	}
-	public void setFlTipo(Integer flTipo) {
-		this.flTipo = flTipo;
+
+	public void setTipoAlerta(AlertaType tipoAlerta) {
+		this.tipoAlerta = tipoAlerta;
 	}
 
 	public Integer getMargem(){
