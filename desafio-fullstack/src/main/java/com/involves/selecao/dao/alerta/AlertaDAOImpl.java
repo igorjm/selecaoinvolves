@@ -46,7 +46,7 @@ public class AlertaDAOImpl implements AlertaDAO {
 			alerta.setTipoAlerta(AlertaType.valueOf(document.getString("tipo")));
 			alerta.setMargem(document.getInteger("margem"));
 			alerta.setPontoDeVenda(document.getString("ponto_de_venda"));
-			alerta.setProduto(document.getString("produto"));
+//			alerta.setProduto(document.getString("produto"));
 			alertas.add(alerta);
 		}
 

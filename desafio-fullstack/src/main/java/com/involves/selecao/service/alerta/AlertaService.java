@@ -9,5 +9,5 @@ public interface AlertaService {
 
     List<Alerta> buscarTodosAlertas();
 
-    void processa() throws IOException;
+    void processarAlerta() throws IOException;
 }

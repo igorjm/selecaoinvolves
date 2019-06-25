@@ -24,7 +24,7 @@ public class AlertaController {
 	@GetMapping("/processar")
     public void processar() {
 		try {
-			alertaService.processa();
+			alertaService.processarAlerta();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

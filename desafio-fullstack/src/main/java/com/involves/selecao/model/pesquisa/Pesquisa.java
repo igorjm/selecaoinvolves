@@ -1,4 +1,6 @@
 package com.involves.selecao.model.pesquisa;
+import com.involves.selecao.model.produto.Produto;
+
 import java.util.List;
 
 public class Pesquisa {
@@ -6,12 +8,10 @@ public class Pesquisa {
 	private String rotulo;
 	private String notificante;
 	private String pontoDeVenda;
-	private String produto;
-	private String precoEstipulado;
+	private Produto produto;
 	private List<Resposta> respostas;
 	private String participacaoEstipulada;
-	private String categoria;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -36,7 +36,6 @@ public class Pesquisa {
 	public String getPontoDeVenda() {
 		return pontoDeVenda;
 	}
-
 	public void setPontoDeVenda(String pontoDeVenda) {
 		this.pontoDeVenda = pontoDeVenda;
 	}
@@ -48,18 +47,11 @@ public class Pesquisa {
 		this.respostas = respostas;
 	}
 
-	public String getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
-	public void setProduto(String produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
-	}
-
-	public String getPrecoEstipulado() {
-		return precoEstipulado;
-	}
-	public void setPrecoEstipulado(String precoEstipulado) {
-		this.precoEstipulado = precoEstipulado;
 	}
 
 	public String getParticipacaoEstipulada() {
@@ -69,10 +61,4 @@ public class Pesquisa {
 		this.participacaoEstipulada = participacaoEstipulada;
 	}
 
-	public String getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
 }
