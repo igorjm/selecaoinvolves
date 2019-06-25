@@ -1,0 +1,19 @@
+.header {
+    background: #242424;
+    border-bottom: 1px solid #000000;
+}
+
+.headerOpt {
+    background: red;
+    display: flex;
+}
+
+.logo {
+    flex-grow: 1;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.logo img {
+    width: 200px;
+}
