@@ -5,7 +5,9 @@ import CardAlerta from '../components/CardAlerta/card_alerta'
 const Main = () => {
     return (
         <div>
-            <CardAlerta />
+            <CardAlerta
+            // props
+            />
         </div>
     )
 }
