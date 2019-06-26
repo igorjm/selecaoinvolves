@@ -3,6 +3,8 @@ package com.involves.selecao.service.alerta;
 import java.io.IOException;
 import java.util.List;
 
+import com.involves.selecao.dto.pesquisa.PesquisaDTO;
+import com.involves.selecao.dto.pesquisa.RespostaDTO;
 import com.involves.selecao.model.alerta.AlertaType;
 import com.involves.selecao.service.pesquisa.PesquisaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +31,11 @@ public class AlertaServiceImpl implements AlertaService {
 
     @Override
     public void processarAlerta() throws IOException {
-        Pesquisa[] pesquisa = pesquisaService.receberPesquisas();
+        List<PesquisaDTO> pesquisa = pesquisaService.receberPesquisas();
 
         try {
-            for(Pesquisa listPesquisa : pesquisa) {
-                for(Resposta listResposta : listPesquisa.getRespostas()) {
+            for(PesquisaDTO listPesquisa : pesquisa) {
+                for(RespostaDTO listResposta : listPesquisa.getRespostaDTO()) {
                     if(listResposta.getPergunta().equals("Qual a situação do produto?")) {
                         if(listResposta.equals("Produto ausente na gondola")) {
                             salvarAlerta(0, listPesquisa, AlertaType.RUPTURA);
@@ -107,13 +109,13 @@ public class AlertaServiceImpl implements AlertaService {
         }
     }
 
-    private void salvarAlerta(Integer margem, Pesquisa pesquisa, AlertaType tipoAlerta) {
+    private void salvarAlerta(Integer margem,  PesquisaDTO pesquisaDTO, AlertaType tipoAlerta) {
         Alerta alerta = new Alerta();
         if (margem != null) {
             alerta.setMargem(margem);
-            alerta.setPontoDeVenda(pesquisa.getPontoDeVenda());
+            alerta.setPontoDeVenda(pesquisaDTO.getPontoDeVenda());
             alerta.setDescricao(tipoAlerta.getDescricao());
-            alerta.setProduto(pesquisa.getProduto());
+            alerta.setProduto(pesquisaDTO.getProduto());
             alerta.setValorTipoAlerta(tipoAlerta.getValor());
             alertaDAO.salvar(alerta);
         }

@@ -1,7 +1,8 @@
 package com.involves.selecao.service.pesquisa;
 
 import com.google.gson.Gson;
-import com.involves.selecao.model.pesquisa.Pesquisa;
+import com.google.gson.reflect.TypeToken;
+import com.involves.selecao.dto.pesquisa.PesquisaDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -10,15 +11,14 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PesquisaServiceImpl implements PesquisaService {
 
     @Override
-    public Pesquisa[] receberPesquisas() {
-        Pesquisa[] pesquisa = null;
+    public List<PesquisaDTO> receberPesquisas() {
+        List<PesquisaDTO> pesquisa = null;
         try {
             URL url = new URL("https://selecao-involves.agilepromoter.com/pesquisas");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -35,12 +35,12 @@ public class PesquisaServiceImpl implements PesquisaService {
             in.close();
 
             Gson gson = new Gson();
-//            System.out.println(content.toString());
-            pesquisa =  gson.fromJson(content.toString(), Pesquisa[].class);
+            Type listaPesquisaType = new TypeToken<List<PesquisaDTO>>(){}.getType();
+            pesquisa =  gson.fromJson(content.toString(), listaPesquisaType);
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        System.out.println(pesquisa);
         return pesquisa;
+
     }
 }
