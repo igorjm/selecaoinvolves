@@ -1,8 +1,9 @@
-package com.involves.selecao.model.alerta;
+package com.involves.selecao.controller;
 
 import java.io.IOException;
 import java.util.List;
 
+import com.involves.selecao.model.alerta.Alerta;
 import com.involves.selecao.service.alerta.AlertaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +17,13 @@ public class AlertaController {
 	@Autowired
 	private AlertaService alertaService;
 
-	@GetMapping
+	@GetMapping("/")
     public List<Alerta> alertas() {
 		return alertaService.buscarTodosAlertas();
     }
 	
 	@GetMapping("/processar")
-    public void processar() {
-		try {
-			alertaService.processarAlerta();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-    }
+    public void processar() throws IOException {
+		alertaService.processarAlerta();
+	}
 }

@@ -29,7 +29,8 @@ public class AlertaDAOImpl implements AlertaDAO {
                 .append("descricao", alerta.getDescricao())
                 .append("tipo", alerta.getTipoAlerta().valor)
                 .append("margem", alerta.getMargem())
-                .append("produto", alerta.getProduto());
+                .append("produto", alerta.getProduto())
+				.append("categoria", alerta.getProduto().getCategoria());
 		collection.insertOne(doc);
 	}
 
