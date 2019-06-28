@@ -1,5 +1,6 @@
 package com.involves.selecao.model.pesquisa;
 import com.involves.selecao.model.produto.Produto;
+import com.involves.selecao.model.resposta.Resposta;
 
 import java.util.List;
 

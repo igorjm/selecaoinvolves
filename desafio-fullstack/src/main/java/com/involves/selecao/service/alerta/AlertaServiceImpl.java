@@ -1,11 +1,10 @@
 package com.involves.selecao.service.alerta;
 
-import java.io.IOException;
 import java.util.List;
 
 import com.involves.selecao.model.alerta.AlertaType;
 import com.involves.selecao.model.pesquisa.Pesquisa;
-import com.involves.selecao.model.pesquisa.Resposta;
+import com.involves.selecao.model.resposta.Resposta;
 import com.involves.selecao.service.pesquisa.PesquisaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

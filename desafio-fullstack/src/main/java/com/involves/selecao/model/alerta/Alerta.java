@@ -3,12 +3,20 @@ package com.involves.selecao.model.alerta;
 import com.involves.selecao.model.produto.Produto;
 
 public class Alerta {
-	
+
+	private String idAlerta;
 	private String pontoDeVenda;
 	private String descricao;
 	private Produto produto;
 	private AlertaType tipoAlerta;
 	private Integer margem;
+
+	public String getIdAlerta() {
+		return idAlerta;
+	}
+	public void setIdAlerta(String idAlerta) {
+		this.idAlerta = idAlerta;
+	}
 
 	public String getPontoDeVenda() {
 		return pontoDeVenda;
