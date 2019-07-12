@@ -30,7 +30,7 @@ public class AlertaDAOImpl implements AlertaDAO {
                 .append("tipo", alerta.getTipoAlerta().valor)
                 .append("margem", alerta.getMargem())
                 .append("produto", alerta.getProduto())
-				.append("categoria", alerta.getProduto().getCategoria());
+				.append("categoria", alerta.getProduto());
 		collection.insertOne(doc);
 	}
 
@@ -44,7 +44,7 @@ public class AlertaDAOImpl implements AlertaDAO {
 		for (Document document : db) {
 			Alerta alerta = new Alerta();
 			alerta.setDescricao(document.getString("descricao"));
-			alerta.setTipoAlerta(AlertaType.valueOf(document.getString("tipo")));
+			alerta.setValorTipoAlerta(AlertaType.valueOf(document.getString("tipo")).getValor());
 			alerta.setMargem(document.getInteger("margem"));
 			alerta.setPontoDeVenda(document.getString("ponto_de_venda"));
 //			alerta.setProduto(document.getString("produto"));

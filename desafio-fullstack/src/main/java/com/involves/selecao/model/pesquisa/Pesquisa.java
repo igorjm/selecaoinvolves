@@ -9,8 +9,10 @@ public class Pesquisa {
 	private String rotulo;
 	private String notificante;
 	private String pontoDeVenda;
-	private Produto produto;
+	private String produto;
 	private List<Resposta> respostas;
+	private String categoria;
+	private String precoEstipulado;
 	private String participacaoEstipulada;
 
 	public int getId() {
@@ -48,11 +50,18 @@ public class Pesquisa {
 		this.respostas = respostas;
 	}
 
-	public Produto getProduto() {
+	public String getProduto() {
 		return produto;
 	}
-	public void setProduto(Produto produto) {
+	public void setProduto(String produto) {
 		this.produto = produto;
+	}
+
+	public String getPrecoEstipulado() {
+		return precoEstipulado;
+	}
+	public void setPrecoEstipulado(String precoEstipulado) {
+		this.precoEstipulado = precoEstipulado;
 	}
 
 	public String getParticipacaoEstipulada() {
@@ -62,4 +71,10 @@ public class Pesquisa {
 		this.participacaoEstipulada = participacaoEstipulada;
 	}
 
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 }

@@ -1,13 +1,11 @@
 package com.involves.selecao.model.alerta;
 
-import com.involves.selecao.model.produto.Produto;
-
 public class Alerta {
 
 	private String idAlerta;
 	private String pontoDeVenda;
 	private String descricao;
-	private Produto produto;
+	private String produto;
 	private AlertaType tipoAlerta;
 	private Integer margem;
 
@@ -32,14 +30,10 @@ public class Alerta {
 		this.descricao = descricao;
 	}
 
-	public Produto getProduto() {
+	public String getProduto() {
 		return produto;
 	}
-	public String getNomeProduto() {
-		return produto != null ? produto.getNome() : "";
-	}
-
-	public void setProduto(Produto produto) {
+	public void setProduto(String produto) {
 		this.produto = produto;
 	}
 
@@ -52,6 +46,7 @@ public class Alerta {
 	public void setTipoAlerta(AlertaType tipoAlerta) {
 		this.tipoAlerta = tipoAlerta;
 	}
+
 
 	public Integer getMargem(){
 		return margem;

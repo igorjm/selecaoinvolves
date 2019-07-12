@@ -39,11 +39,12 @@ public class AlertaServiceImpl implements AlertaService {
             for(Pesquisa listPesquisa : pesquisa) {
                 for(Resposta listResposta : listPesquisa.getRespostas()) {
                     String coletado = listResposta.getResposta();
-                    String estipulado = listPesquisa.getProduto().getPrecoEstipulado();
+                    String estipulado = listPesquisa.getPrecoEstipulado();
 
                     if(listResposta.getPergunta().equals(PERGUNTA_SITUACAO)) {
                         if(listResposta.equals(RESPOSTA_PRODUTO_AUSENTE)) {
                             salvarAlerta(0, listPesquisa, AlertaType.RUPTURA);
+                            System.out.println("Alerta RUPTURA!");
                         }
                     } else {
                         if(listResposta.getPergunta().equals(PERGUNTA_PRECO)) {
@@ -52,8 +53,10 @@ public class AlertaServiceImpl implements AlertaService {
                             if (margem != null && margem != 0) {
                                 if (isAboveCollected(coletado, estipulado)) {
                                     salvarAlerta(margem, listPesquisa, AlertaType.PRECO_ACIMA_ESTIPULADO);
+                                    System.out.println("Alerta PRECO_ACIMA_ESTIPULADO!");
                                 } else {
                                     salvarAlerta(margem, listPesquisa, AlertaType.PRECO_ABAIXO_ESTIPULADO);
+                                    System.out.println("Alerta PRECO_ABAIXO_ESTIPULADO!");
                                 }
                             }
                         } else if(listResposta.getPergunta().equals(PERGUNTA_SHARE)) {
@@ -62,8 +65,10 @@ public class AlertaServiceImpl implements AlertaService {
                             if (margem != null && margem != 0) {
                                 if (isAboveCollected(coletado, estipulado)) {
                                     salvarAlerta(margem, listPesquisa, AlertaType.SHARE_SUPERIOR_ESTIPULADO);
+                                    System.out.println("Alerta SHARE_SUPERIOR_ESTIPULADO!");
                                 } else {
                                     salvarAlerta(margem, listPesquisa, AlertaType.SHARE_INFERIOR_ESTIPULADO);
+                                    System.out.println("Alerta SHARE_INFERIOR_ESTIPULADO!");
                                 }
                             }
                         } else {
@@ -78,7 +83,10 @@ public class AlertaServiceImpl implements AlertaService {
     }
 
     private Integer calcularMargem(String coletado, String estipulado) {
-        return Integer.parseInt(coletado) - Integer.parseInt(estipulado);
+        if(coletado != null && estipulado != null) {
+            return Integer.parseInt(coletado) - Integer.parseInt(estipulado);
+        }
+        return 0;
     }
 
     private Boolean isAboveCollected(String coletado, String estipulado) {
