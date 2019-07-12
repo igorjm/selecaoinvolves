@@ -54,22 +54,4 @@ public class AlertaTest {
 //        assertThat(alertas.size() == 1);
     }
 
-//    private PesquisaVO producePesquisaVO() {
-//        PesquisaVO pesquisa = new PesquisaVO();
-//        pesquisa.setId(1);
-//        pesquisa.setRotulo("Campanha de pascoa");
-//        pesquisa.setNotificante("João");
-//        pesquisa.setPonto_de_venda("Angel One Capoeiras");
-//        pesquisa.setProduto("Ovo de Pascoa Kinder 48");
-//
-//        List<RespostaVO> respostas = new ArrayList<RespostaVO>();
-//        RespostaVO respostaVO = new RespostaVO();
-//        respostaVO.setPergunta("Qual a situação do produto?");
-//        respostaVO.setResposta("Produto está na gondola");
-//        respostas.add(respostaVO);
-//        pesquisa.setRespostas(respostas);
-////		""id":"1","rotulo":"Campanha de pascoa","notificante":"João","ponto_de_venda":"Angel One Capoeiras","produto":"Ovo de Pascoa Kinder 48","respostas":[{"pergunta":"Qual a situação do produto?","resposta":"Produto está na gondola"}";
-//        return pesquisa;
-//    }
-
 }

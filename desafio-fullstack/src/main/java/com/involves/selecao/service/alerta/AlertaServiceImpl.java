@@ -90,11 +90,12 @@ public class AlertaServiceImpl implements AlertaService {
     }
 
     private Boolean isAboveCollected(String coletado, String estipulado) {
-        if(Integer.parseInt(coletado) > Integer.parseInt(estipulado)) {
-            return Boolean.TRUE;
-        } else {
-            return Boolean.FALSE;
+        if(coletado != null && estipulado != null) {
+            if (Integer.parseInt(coletado) > Integer.parseInt(estipulado)) {
+                return Boolean.TRUE;
+            }
         }
+        return Boolean.FALSE;
     }
 
     private void salvarAlerta(Integer margem,  Pesquisa pesquisa, AlertaType tipoAlerta) {
